@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neuqua Valley Astronomy Club</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
   <style>
-    /* Dark space-themed layout */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0b0d17;
@@ -39,11 +39,115 @@
       padding: 20px;
     }
 
-    /* Clean Card Layouts */
     .card {
       background: #161b33;
       border: 1px solid #232d48;
       border-radius: 12px;
       padding: 25px;
       margin-bottom: 25px;
-      box-
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      color: #38bdf8;
+      margin-top: 0;
+      border-bottom: 1px solid #232d48;
+      padding-bottom: 10px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .feature-item {
+      background: #0f1426;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #4da6ff;
+    }
+
+    .feature-item h3 {
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background-color: #f59e0b;
+      color: #000;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-top: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✨ Neuqua Valley Astronomy Club ✨</h1>
+    <p class="tagline">Explore the universe, look through telescopes, and discover the cosmos.</p>
+  </header>
+
+  <main>
+
+    <section class="card">
+      <h2>📅 Meeting Schedule</h2>
+      <span class="status-badge">UPDATE COMING SOON</span>
+      <p>Official meeting days and room details will be posted here soon for the upcoming term! Check back shortly or contact an officer for details.</p>
+    </section>
+
+    <section class="card">
+      <h2>🚀 Why Join Astronomy Club?</h2>
+      <p>Whether you're obsessed with black holes, love stargazing, or just want a cool place to hang out and learn something incredible, there's a place for you here!</p>
+      
+      <div class="features-grid">
+        <div class="feature-item">
+          <h3>🔭 Telescope Nights</h3>
+          <p>Get hands-on experience using telescopes to view the Moon, planets, and deep-space objects.</p>
+        </div>
+        <div class="feature-item">
+          <h3>🌌 Mind-Blowing Topics</h3>
+          <p>Explore dark matter, exoplanets, space exploration missions, and astrophysics in fun ways.</p>
+        </div>
+        <div class="feature-item">
+          <h3>🪐 Great Community</h3>
+          <p>Meet other students who share your curiosity about space and science.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📸 Telescope Night Gallery</h2>
+      <p><em>Photos from our stargazing events will be posted here!</em></p>
+    </section>
+
+    <section class="card">
+      <h2>📬 Contact & Officers</h2>
+      <p>Have questions? Reach out to our club officers or sponsor!</p>
+      <ul>
+        <li><strong>Club Sponsor:</strong> [Teacher Name]</li>
+        <li><strong>Meeting Location:</strong> [Room Number]</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; Neuqua Valley High School Astronomy Club</p>
+  </footer>
+
+</body>
+</html>
