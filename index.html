@@ -8,10 +8,6 @@
   <link rel="icon" type="image/png" href="logo.png">
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0b0d17;
@@ -29,25 +25,33 @@
       border-bottom: 1px solid #232d48;
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 10px;
       padding: 12px 10px;
       z-index: 1000;
       flex-wrap: wrap;
     }
 
-    nav a {
+    nav button {
+      background: none;
+      border: 1px solid transparent;
       color: #93c5fd;
-      text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 6px;
-      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
     }
 
-    nav a:hover {
+    nav button:hover {
       background-color: #232d48;
       color: #ffffff;
+    }
+
+    nav button.active {
+      background-color: #38bdf8;
+      color: #0b0d17;
+      border-color: #38bdf8;
     }
 
     header {
@@ -58,8 +62,8 @@
     }
 
     .logo-container img {
-      width: 130px;
-      height: 130px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       box-shadow: 0 0 20px rgba(77, 166, 255, 0.4);
       object-fit: cover;
@@ -67,7 +71,7 @@
 
     h1 {
       color: #4da6ff;
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       margin: 10px 0 5px;
     }
 
@@ -83,12 +87,21 @@
       padding: 20px;
     }
 
+    /* TAB CONTENT SECTIONS */
+    .tab-content {
+      display: none; /* Hides sections by default */
+    }
+
+    .tab-content.active {
+      display: block; /* Shows active section */
+    }
+
     .card {
       background: #161b33;
       border: 1px solid #232d48;
       border-radius: 12px;
       padding: 25px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
@@ -108,6 +121,41 @@
       border-radius: 20px;
       font-size: 0.85rem;
       margin-bottom: 10px;
+    }
+
+    /* QUICK JOIN BOX */
+    .join-box {
+      background: #0f1426;
+      border: 1px solid #38bdf8;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .join-btn {
+      display: inline-block;
+      background-color: #38bdf8;
+      color: #0b0d17;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    .join-btn:hover {
+      background-color: #7dd3fc;
+    }
+
+    .code-badge {
+      background-color: #232d48;
+      color: #38bdf8;
+      padding: 4px 8px;
+      font-family: monospace;
+      font-size: 1.1rem;
+      border-radius: 4px;
     }
 
     .features-grid {
@@ -138,11 +186,6 @@
       margin-bottom: 20px;
     }
 
-    .sponsor-card a {
-      color: #93c5fd;
-      text-decoration: none;
-    }
-
     .exec-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -163,14 +206,12 @@
       color: #38bdf8;
     }
 
-    .exec-card a {
+    a {
       color: #93c5fd;
       text-decoration: none;
-      font-size: 0.85rem;
-      word-break: break-all;
     }
 
-    .exec-card a:hover, .sponsor-card a:hover {
+    a:hover {
       text-decoration: underline;
     }
 
@@ -185,10 +226,11 @@
 <body>
 
   <nav>
-    <a href="#about">About Us</a>
-    <a href="#meetings">Meetings</a>
-    <a href="#why-join">Why Join</a>
-    <a href="#team">Our Team</a>
+    <button class="nav-btn active" onclick="openTab('about')">Who Are We?</button>
+    <button class="nav-btn" onclick="openTab('why-join')">Why Join</button>
+    <button class="nav-btn" onclick="openTab('meetings')">Meetings & Location</button>
+    <button class="nav-btn" onclick="openTab('join')">Interest Form & Socials</button>
+    <button class="nav-btn" onclick="openTab('team')">Sponsor & Exec Board</button>
   </nav>
 
   <header>
@@ -201,89 +243,139 @@
 
   <main>
 
-    <section id="about" class="card">
-      <h2>✨ Who Are We?</h2>
-      <p>The Neuqua Valley Astronomy Club is a student-led community dedicated to exploring space, astrophysics, and stargazing. Whether you are an expert on black holes or just curious about what's out there in the universe, our club offers an engaging, welcoming space for everyone!</p>
-    </section>
+    <div id="about" class="tab-content active">
+      <section class="card">
+        <h2>✨ Who Are We?</h2>
+        <p>The Neuqua Valley Astronomy Club is a student-led community dedicated to exploring space, astrophysics, and stargazing. Whether you are an expert on black holes or just curious about what's out there in the universe, our club offers an engaging, welcoming space for everyone!</p>
+      </section>
+    </div>
 
-    <section id="meetings" class="card">
-      <h2>📅 Meetings & Location</h2>
-      <span class="status-badge">MEETING DAYS POSTED SOON</span>
-      <p>Official meeting days and room details for the upcoming term will be posted here shortly!</p>
-      <p><strong>📍 Location:</strong> Neuqua Valley High School — Main Building (2360 95th St, Naperville, IL 60564)</p>
-    </section>
+    <div id="why-join" class="tab-content">
+      <section class="card">
+        <h2>🚀 Why Join Astronomy Club?</h2>
+        <p>Looking for a fun place to hang out after school? Here are just a few reasons to get involved:</p>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>🍬 Candy & Prizes</h3>
+            <p>Win awesome prizes, enjoy free candy, and compete in fun space trivia and activities!</p>
+          </div>
+          <div class="feature-item">
+            <h3>👥 Bring Friends</h3>
+            <p>Hang out with your friends or make new ones who share your interest in science and space.</p>
+          </div>
+          <div class="feature-item">
+            <h3>🤝 Naperville Non-Profits</h3>
+            <p>Interact and connect with amazing non-profit organization partners all across Naperville!</p>
+          </div>
+          <div class="feature-item">
+            <h3>🔭 Telescope Nights</h3>
+            <p>Get hands-on experience using telescopes to view the Moon, planets, and deep-space objects.</p>
+          </div>
+        </div>
+      </section>
+    </div>
 
-    <section id="why-join" class="card">
-      <h2>🚀 Why Join Astronomy Club?</h2>
-      <p>Looking for a fun place to hang out after school? Here are just a few reasons to get involved:</p>
-      
-      <div class="features-grid">
-        <div class="feature-item">
-          <h3>🍬 Candy & Prizes</h3>
-          <p>Win awesome prizes, enjoy free candy, and compete in fun space trivia and activities!</p>
-        </div>
-        <div class="feature-item">
-          <h3>👥 Bring Friends</h3>
-          <p>Hang out with your friends or make new ones who share your interest in science and space.</p>
-        </div>
-        <div class="feature-item">
-          <h3>🤝 Naperville Non-Profits</h3>
-          <p>Interact and connect with amazing non-profit organization partners all across Naperville!</p>
-        </div>
-        <div class="feature-item">
-          <h3>🔭 Telescope Nights</h3>
-          <p>Get hands-on experience using telescopes to view the Moon, planets, and deep-space objects.</p>
-        </div>
-      </div>
-    </section>
+    <div id="meetings" class="tab-content">
+      <section class="card">
+        <h2>📅 Meetings & Location</h2>
+        <span class="status-badge">MEETING DAYS POSTED SOON</span>
+        <p>Official meeting days and room details for the upcoming term will be posted here shortly!</p>
+        <p><strong>📍 Location:</strong> Neuqua Valley High School — Main Building (2360 95th St, Naperville, IL 60564)</p>
+      </section>
+    </div>
 
-    <section id="team" class="card">
-      <h2>👨‍🏫 Club Sponsor</h2>
-      <div class="sponsor-card">
-        <p><strong>Steve Wick</strong></p>
-        <p>Email: <a href="mailto:steve_wick@ipsd.org">steve_wick@ipsd.org</a></p>
-      </div>
+    <div id="join" class="tab-content">
+      <section class="card">
+        <h2>📝 Get Involved!</h2>
+        
+        <div class="join-box">
+          <h3>📋 Interest Form</h3>
+          <p>Fill out our quick interest form to let us know you're interested in joining!</p>
+          <a href="https://docs.google.com/forms/d/1Ch6Es5WH7nsUt720WX_HEDsjcrMFfDrLMH9nDFAs6yI/edit" target="_blank" class="join-btn">Fill Out Interest Form 🚀</a>
+        </div>
 
-      <h2>🌟 Executive Board</h2>
-      <p>Have questions or want to get in touch? Reach out to any of our exec board members!</p>
-      
-      <div class="exec-grid">
-        <div class="exec-card">
-          <h3>Jayden</h3>
-          <a href="mailto:jaydenl6995@k12.ipsd.org">jaydenl6995@k12.ipsd.org</a>
+        <div class="join-box">
+          <h3>🏫 Google Classroom</h3>
+          <p>Join our Google Classroom to receive meeting announcements, updates, and event reminders.</p>
+          <p>Classroom Code: <span class="code-badge">h5qbas6</span></p>
         </div>
-        <div class="exec-card">
-          <h3>Zara</h3>
-          <a href="mailto:zararah0629@k12.ipsd.org">zararah0629@k12.ipsd.org</a>
+
+        <div class="join-box">
+          <h3>📸 Instagram</h3>
+          <p>Follow us on Instagram for updates, photos, and club highlights!</p>
+          <p>Handle: <a href="https://instagram.com/NVHS.ASTRONOMY" target="_blank"><strong>@NVHS.ASTRONOMY</strong></a></p>
         </div>
-        <div class="exec-card">
-          <h3>Sanjana</h3>
-          <a href="mailto:sanjanabal6958@k12.ipsd.org">sanjanabal6958@k12.ipsd.org</a>
+      </section>
+    </div>
+
+    <div id="team" class="tab-content">
+      <section class="card">
+        <h2>👨‍🏫 Club Sponsor</h2>
+        <div class="sponsor-card">
+          <p><strong>Steve Wick</strong></p>
+          <p>Email: <a href="mailto:steve_wick@ipsd.org">steve_wick@ipsd.org</a></p>
         </div>
-        <div class="exec-card">
-          <h3>Harshni</h3>
-          <a href="mailto:harshnikar3308@k12.ipsd.org">harshnikar3308@k12.ipsd.org</a>
+
+        <h2>🌟 Executive Board</h2>
+        <p>Have questions or want to get in touch? Reach out to any of our exec board members!</p>
+        
+        <div class="exec-grid">
+          <div class="exec-card">
+            <h3>Jayden</h3>
+            <a href="mailto:jaydenl6995@k12.ipsd.org">jaydenl6995@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Zara</h3>
+            <a href="mailto:zararah0629@k12.ipsd.org">zararah0629@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Sanjana</h3>
+            <a href="mailto:sanjanabal6958@k12.ipsd.org">sanjanabal6958@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Harshni</h3>
+            <a href="mailto:harshnikar3308@k12.ipsd.org">harshnikar3308@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Harshal</h3>
+            <a href="mailto:harshalkar3310@k12.ipsd.org">harshalkar3310@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Alyssa</h3>
+            <a href="mailto:alyssahen6324@k12.ipsd.org">alyssahen6324@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Brendan</h3>
+            <a href="mailto:brendanbau5400@k12.ipsd.org">brendanbau5400@k12.ipsd.org</a>
+          </div>
         </div>
-        <div class="exec-card">
-          <h3>Harshal</h3>
-          <a href="mailto:harshalkar3310@k12.ipsd.org">harshalkar3310@k12.ipsd.org</a>
-        </div>
-        <div class="exec-card">
-          <h3>Alyssa</h3>
-          <a href="mailto:alyssahen6324@k12.ipsd.org">alyssahen6324@k12.ipsd.org</a>
-        </div>
-        <div class="exec-card">
-          <h3>Brendan</h3>
-          <a href="mailto:brendanbau5400@k12.ipsd.org">brendanbau5400@k12.ipsd.org</a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
   </main>
 
   <footer>
     <p>&copy; Neuqua Valley High School Astronomy Club • Naperville, IL</p>
   </footer>
+
+  <script>
+    function openTab(tabId) {
+      // Hide all tabs
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active status from all buttons
+      const buttons = document.querySelectorAll('.nav-btn');
+      buttons.forEach(button => button.classList.remove('active'));
+
+      // Show selected tab
+      document.getElementById(tabId).classList.add('active');
+
+      // Set active button style
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
