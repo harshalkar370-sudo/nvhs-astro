@@ -92,15 +92,20 @@
     /* ROCKET EXPLORATION PROGRESS BAR */
     .progress-container {
       background-color: #0b0d17;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-bottom: 1px solid #1f293d;
     }
 
     .progress-label {
-      font-size: 0.85rem;
-      color: #a0aec0;
+      font-size: 0.9rem;
+      color: #38bdf8;
       text-align: center;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      min-height: 2.7em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
     }
 
     .planets-track {
@@ -133,10 +138,6 @@
       padding: 2px;
       border-radius: 50%;
       transition: transform 0.3s;
-    }
-
-    .planet-node.visited {
-      transform: scale(1.2);
     }
 
     .rocket-icon {
@@ -333,11 +334,11 @@
   </nav>
 
   <div class="progress-container">
-    <div class="progress-label" id="progress-text">Website Exploration Progress: 20% (Earth 🌎)</div>
+    <div class="progress-label" id="progress-text"><strong>Earth 🌎:</strong> Earth is the only known body in the universe where liquid water exists continuously on its surface.</div>
     <div class="planets-track">
       <div class="track-line"></div>
       <div class="rocket-icon" id="rocket">🚀</div>
-      <span class="planet-node visited" title="Earth">🌎</span>
+      <span class="planet-node" title="Earth">🌎</span>
       <span class="planet-node" title="Mars">🔴</span>
       <span class="planet-node" title="Jupiter">🪐</span>
       <span class="planet-node" title="Saturn">🌌</span>
@@ -472,7 +473,13 @@
   </footer>
 
   <script>
-    const visitedTabs = new Set(['about']);
+    const spaceFacts = {
+      0: "<strong>Earth 🌎:</strong> Earth is the only planet in our solar system not named after a Greek or Roman deity.",
+      25: "<strong>Mars 🔴:</strong> Olympus Mons on Mars is a volcano 3 times taller than Mount Everest—so large its peak extends above Mars' main atmosphere.",
+      50: "<strong>Jupiter 🪐:</strong> Jupiter’s Great Red Spot is a storm wider than Earth that has been raging continuously for over 300 years.",
+      75: "<strong>Saturn 🌌:</strong> Saturn’s density is so low (0.687 g/cm³) that if you found a bathtub large enough, the planet would float on water.",
+      100: "<strong>Deep Space ✨:</strong> Photons born in the core of the Sun take up to 100,000 years to reach its surface, but only 8 minutes to travel to Earth!"
+    };
 
     function toggleMenu() {
       const dropdown = document.getElementById('dropdown');
@@ -500,25 +507,12 @@
       document.getElementById(tabId).classList.add('active');
       event.currentTarget.classList.add('active');
 
-      // Track visited sections
-      visitedTabs.add(tabId);
-      
       // Move Rocket
       const rocket = document.getElementById('rocket');
       rocket.style.left = percent + '%';
 
-      // Update text status
-      const exploredCount = visitedTabs.size;
-      const totalProgress = exploredCount * 20;
-      
-      let planetName = "Earth 🌎";
-      if (percent === 25) planetName = "Mars 🔴";
-      if (percent === 50) planetName = "Jupiter 🪐";
-      if (percent === 75) planetName = "Saturn 🌌";
-      if (percent === 100) planetName = "Deep Space ✨";
-
-      document.getElementById('progress-text').innerText = 
-        `Website Exploration Progress: ${totalProgress}% (Reached: ${planetName})`;
+      // Update space fact
+      document.getElementById('progress-text').innerHTML = spaceFacts[percent];
 
       // Close dropdown menu after picking a tab
       document.getElementById('dropdown').classList.remove('show');
