@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neuqua Valley Astronomy Club</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
+  
+  <link rel="icon" type="image/png" href="logo.png">
+
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0b0d17;
@@ -15,20 +21,45 @@
       line-height: 1.6;
     }
 
+    /* TOP NAVIGATION BAR */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #161b33;
+      border-bottom: 1px solid #232d48;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 12px 10px;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #232d48;
+      color: #ffffff;
+    }
+
     header {
       background: linear-gradient(180deg, #161b33 0%, #0b0d17 100%);
       text-align: center;
-      padding: 40px 20px 30px;
+      padding: 30px 20px 20px;
       border-bottom: 1px solid #1f293d;
     }
 
-    .logo-container {
-      margin-bottom: 15px;
-    }
-
     .logo-container img {
-      width: 140px;
-      height: 140px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       box-shadow: 0 0 20px rgba(77, 166, 255, 0.4);
       object-fit: cover;
@@ -36,12 +67,12 @@
 
     h1 {
       color: #4da6ff;
-      font-size: 2.5rem;
-      margin: 10px 0;
+      font-size: 2.3rem;
+      margin: 10px 0 5px;
     }
 
     .tagline {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #a0aec0;
       margin-top: 0;
     }
@@ -57,7 +88,7 @@
       border: 1px solid #232d48;
       border-radius: 12px;
       padding: 25px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
@@ -99,6 +130,19 @@
       font-size: 1.1rem;
     }
 
+    .sponsor-card {
+      background: #0f1426;
+      padding: 15px 20px;
+      border-radius: 8px;
+      border: 1px solid #1f293d;
+      margin-bottom: 20px;
+    }
+
+    .sponsor-card a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
     .exec-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -126,7 +170,7 @@
       word-break: break-all;
     }
 
-    .exec-card a:hover {
+    .exec-card a:hover, .sponsor-card a:hover {
       text-decoration: underline;
     }
 
@@ -140,9 +184,16 @@
 </head>
 <body>
 
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#meetings">Meetings</a>
+    <a href="#why-join">Why Join</a>
+    <a href="#team">Our Team</a>
+  </nav>
+
   <header>
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/google/generative-ai-docs/main/site/en/images/spacer.gif" id="club-logo" alt="Neuqua Valley Astronomy Club Logo">
+      <img src="logo.png" alt="Neuqua Valley Astronomy Club Logo">
     </div>
     <h1>✨ Neuqua Valley Astronomy Club ✨</h1>
     <p class="tagline">Exploring the cosmos from Naperville, IL.</p>
@@ -150,19 +201,19 @@
 
   <main>
 
-    <section class="card">
+    <section id="about" class="card">
       <h2>✨ Who Are We?</h2>
       <p>The Neuqua Valley Astronomy Club is a student-led community dedicated to exploring space, astrophysics, and stargazing. Whether you are an expert on black holes or just curious about what's out there in the universe, our club offers an engaging, welcoming space for everyone!</p>
     </section>
 
-    <section class="card">
+    <section id="meetings" class="card">
       <h2>📅 Meetings & Location</h2>
       <span class="status-badge">MEETING DAYS POSTED SOON</span>
       <p>Official meeting days and room details for the upcoming term will be posted here shortly!</p>
       <p><strong>📍 Location:</strong> Neuqua Valley High School — Main Building (2360 95th St, Naperville, IL 60564)</p>
     </section>
 
-    <section class="card">
+    <section id="why-join" class="card">
       <h2>🚀 Why Join Astronomy Club?</h2>
       <p>Looking for a fun place to hang out after school? Here are just a few reasons to get involved:</p>
       
@@ -186,7 +237,13 @@
       </div>
     </section>
 
-    <section class="card">
+    <section id="team" class="card">
+      <h2>👨‍🏫 Club Sponsor</h2>
+      <div class="sponsor-card">
+        <p><strong>Steve Wick</strong></p>
+        <p>Email: <a href="mailto:steve_wick@ipsd.org">steve_wick@ipsd.org</a></p>
+      </div>
+
       <h2>🌟 Executive Board</h2>
       <p>Have questions or want to get in touch? Reach out to any of our exec board members!</p>
       
