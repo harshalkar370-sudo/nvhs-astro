@@ -410,4 +410,231 @@
         <div class="features-grid">
           <div class="feature-item">
             <h3>🍬 Candy & Prizes</h3>
-            <p>Win awesome prizes
+            <p>Win awesome prizes, enjoy free candy, and compete in fun space trivia and activities!</p>
+          </div>
+          <div class="feature-item">
+            <h3>👥 Bring Friends</h3>
+            <p>Hang out with your friends or make new ones who share your interest in science and space.</p>
+          </div>
+          <div class="feature-item">
+            <h3>🤝 Naperville Non-Profits</h3>
+            <p>Interact and connect with amazing non-profit organization partners all across Naperville!</p>
+          </div>
+          <div class="feature-item">
+            <h3>🔭 Telescope Nights</h3>
+            <p>Get hands-on experience using telescopes to view the Moon, planets, and deep-space objects.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="meetings" class="tab-content">
+      <section class="card">
+        <h2>📅 Meetings & Location</h2>
+        <span class="status-badge">NEXT MEETING COUNTDOWN</span>
+        
+        <div class="countdown-box">
+          <h3>⏳ Countdown to Next Meeting</h3>
+          <div class="countdown-grid">
+            <div class="countdown-element">
+              <span class="countdown-num" id="cd-days">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-element">
+              <span class="countdown-num" id="cd-hours">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-element">
+              <span class="countdown-num" id="cd-mins">00</span>
+              <span class="countdown-label">Mins</span>
+            </div>
+            <div class="countdown-element">
+              <span class="countdown-num" id="cd-secs">00</span>
+              <span class="countdown-label">Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <p>Official meeting days and room details for the upcoming term will be posted here shortly!</p>
+        <p><strong>📍 Location:</strong> Neuqua Valley High School — Main Building (2360 95th St, Naperville, IL 60564)</p>
+      </section>
+    </div>
+
+    <div id="join" class="tab-content">
+      <section class="card">
+        <h2>📝 Get Involved!</h2>
+        
+        <div class="join-box">
+          <h3>📋 Interest Form</h3>
+          <p>Fill out our quick interest form to let us know you're interested in joining!</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmmiigsm2CJVTmt-jnW0lYYdkXXzPq2UPEjV3tuWliIxO0Ig/viewform?usp=header" target="_blank" class="join-btn">Fill Out Interest Form 🚀</a>
+        </div>
+
+        <div class="join-box">
+          <h3>🏫 Google Classroom</h3>
+          <p>Join our Google Classroom to receive meeting announcements, updates, and event reminders.</p>
+          <p>Classroom Code: <span class="code-badge">h5qbas6</span></p>
+        </div>
+
+        <div class="join-box">
+          <h3>📸 Instagram</h3>
+          <p>Follow us on Instagram for updates, photos, and club highlights!</p>
+          <p>Handle: <a href="https://instagram.com/NVHS.ASTRONOMY" target="_blank"><strong>@NVHS.ASTRONOMY</strong></a></p>
+        </div>
+      </section>
+    </div>
+
+    <div id="team" class="tab-content">
+      <section class="card">
+        <h2>👨‍🏫 Club Sponsor</h2>
+        <div class="sponsor-card">
+          <p><strong>Steve Wick</strong></p>
+          <p>Email: <a href="mailto:steve_wick@ipsd.org">steve_wick@ipsd.org</a></p>
+        </div>
+
+        <h2>🌟 Executive Board</h2>
+        <p>Have questions or want to get in touch? Reach out to any of our exec board members!</p>
+        
+        <div class="exec-grid">
+          <div class="exec-card">
+            <h3>Jayden</h3>
+            <a href="mailto:jaydenl6995@k12.ipsd.org">jaydenl6995@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Zara</h3>
+            <a href="mailto:zararah0629@k12.ipsd.org">zararah0629@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Sanjana</h3>
+            <a href="mailto:sanjanabal6958@k12.ipsd.org">sanjanabal6958@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Harshni</h3>
+            <a href="mailto:harshnikar3308@k12.ipsd.org">harshnikar3308@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Harshal</h3>
+            <a href="mailto:harshalkar3310@k12.ipsd.org">harshalkar3310@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Alyssa</h3>
+            <a href="mailto:alyssahen6324@k12.ipsd.org">alyssahen6324@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Brendan</h3>
+            <a href="mailto:brendanbau5400@k12.ipsd.org">brendanbau5400@k12.ipsd.org</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; Neuqua Valley High School Astronomy Club • Naperville, IL</p>
+  </footer>
+
+  <script>
+    // MULTIPLE RANDOM FACTS PER PLANET
+    const spaceFactBank = {
+      0: [
+        "<strong>Earth 🌎:</strong> Earth is the only planet in our solar system not named after a Greek or Roman deity.",
+        "<strong>Earth 🌎:</strong> Earth's atmosphere shields us from millions of meteors every day, burning most of them up before they hit the ground.",
+        "<strong>Earth 🌎:</strong> Earth is the densest planet in the solar system, averaging 5.52 grams per cubic centimeter."
+      ],
+      25: [
+        "<strong>Mars 🔴:</strong> Olympus Mons on Mars is a volcano 3 times taller than Mount Everest—so large its peak extends above Mars' main atmosphere.",
+        "<strong>Mars 🔴:</strong> Mars experiences global dust storms that can envelope the entire planet and last for months at a time.",
+        "<strong>Mars 🔴:</strong> Sunsets on Mars appear blue to human eyes because dust particles scatter red light while allowing blue light to pass through."
+      ],
+      50: [
+        "<strong>Jupiter 🪐:</strong> Jupiter’s Great Red Spot is a storm wider than Earth that has been raging continuously for over 300 years.",
+        "<strong>Jupiter 🪐:</strong> Jupiter has the shortest day of all the planets in our solar system, completing one full rotation in just under 10 hours.",
+        "<strong>Jupiter 🪐:</strong> Jupiter has 95 officially recognized moons, including Ganymede, which is bigger than the planet Mercury."
+      ],
+      75: [
+        "<strong>Saturn 🌌:</strong> Saturn’s density is so low (0.687 g/cm³) that if you found a bathtub large enough, the planet would float on water.",
+        "<strong>Saturn 🌌:</strong> Saturn's famous rings are mostly made of billions of tiny chunks of water ice ranging from micrometer sizes to large boulders.",
+        "<strong>Saturn 🌌:</strong> Saturn has a unique hexagon-shaped hurricane storm spinning at its north pole that is wider than the planet Earth."
+      ],
+      100: [
+        "<strong>Deep Space ✨:</strong> Photons born in the core of the Sun take up to 100,000 years to reach its surface, but only 8 minutes to travel to Earth!",
+        "<strong>Deep Space ✨:</strong> A neutron star is so dense that a single teaspoon of its material would weigh about 6 billion tons on Earth.",
+        "<strong>Deep Space ✨:</strong> The observable universe contains an estimated 2 trillion galaxies, each holding hundreds of billions of stars."
+      ]
+    };
+
+    function toggleMenu() {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('nav');
+      if (!nav.contains(event.target)) {
+        document.getElementById('dropdown').classList.remove('show');
+      }
+    });
+
+    function getRandomFact(percent) {
+      const facts = spaceFactBank[percent];
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      return facts[randomIndex];
+    }
+
+    function openTab(tabId, percent) {
+      // Hide all tabs
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from menu buttons
+      const buttons = document.querySelectorAll('.dropdown-menu button');
+      buttons.forEach(button => button.classList.remove('active'));
+
+      // Show selected tab & mark active
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+
+      // Move Rocket
+      const rocket = document.getElementById('rocket');
+      rocket.style.left = percent + '%';
+
+      // Pick a random fact for this planet
+      document.getElementById('progress-text').innerHTML = getRandomFact(percent);
+
+      // Close dropdown menu after picking a tab
+      document.getElementById('dropdown').classList.remove('show');
+    }
+
+    /* COUNTDOWN TIMER LOGIC */
+    const targetDate = new Date("September 1, 2026 15:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("cd-days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("cd-hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("cd-mins").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("cd-secs").innerText = seconds < 10 ? "0" + seconds : seconds;
+      } else {
+        document.getElementById("cd-days").innerText = "00";
+        document.getElementById("cd-hours").innerText = "00";
+        document.getElementById("cd-mins").innerText = "00";
+        document.getElementById("cd-secs").innerText = "00";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
