@@ -518,3 +518,97 @@
           </div>
           <div class="exec-card">
             <h3>Alyssa</h3>
+            <a href="mailto:alyssahen6324@k12.ipsd.org">alyssahen6324@k12.ipsd.org</a>
+          </div>
+          <div class="exec-card">
+            <h3>Brendan</h3>
+            <a href="mailto:brendanbau5400@k12.ipsd.org">brendanbau5400@k12.ipsd.org</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; Neuqua Valley High School Astronomy Club • Naperville, IL</p>
+  </footer>
+
+  <script>
+    const spaceFacts = {
+      0: "<strong>Earth 🌎:</strong> Earth is the only planet in our solar system not named after a Greek or Roman deity.",
+      25: "<strong>Mars 🔴:</strong> Olympus Mons on Mars is a volcano 3 times taller than Mount Everest—so large its peak extends above Mars' main atmosphere.",
+      50: "<strong>Jupiter 🪐:</strong> Jupiter’s Great Red Spot is a storm wider than Earth that has been raging continuously for over 300 years.",
+      75: "<strong>Saturn 🌌:</strong> Saturn’s density is so low (0.687 g/cm³) that if you found a bathtub large enough, the planet would float on water.",
+      100: "<strong>Deep Space ✨:</strong> Photons born in the core of the Sun take up to 100,000 years to reach its surface, but only 8 minutes to travel to Earth!"
+    };
+
+    function toggleMenu() {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('nav');
+      if (!nav.contains(event.target)) {
+        document.getElementById('dropdown').classList.remove('show');
+      }
+    });
+
+    function openTab(tabId, percent) {
+      // Hide all tabs
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from menu buttons
+      const buttons = document.querySelectorAll('.dropdown-menu button');
+      buttons.forEach(button => button.classList.remove('active'));
+
+      // Show selected tab & mark active
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+
+      // Move Rocket
+      const rocket = document.getElementById('rocket');
+      rocket.style.left = percent + '%';
+
+      // Update space fact
+      document.getElementById('progress-text').innerHTML = spaceFacts[percent];
+
+      // Close dropdown menu after picking a tab
+      document.getElementById('dropdown').classList.remove('show');
+    }
+
+    /* COUNTDOWN TIMER LOGIC */
+    // Change this date to match your actual upcoming meeting date & time!
+    const targetDate = new Date("September 1, 2026 15:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("cd-days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("cd-hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("cd-mins").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("cd-secs").innerText = seconds < 10 ? "0" + seconds : seconds;
+      } else {
+        document.getElementById("cd-days").innerText = "00";
+        document.getElementById("cd-hours").innerText = "00";
+        document.getElementById("cd-mins").innerText = "00";
+        document.getElementById("cd-secs").innerText = "00";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
