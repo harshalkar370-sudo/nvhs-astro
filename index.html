@@ -18,23 +18,36 @@
     header {
       background: linear-gradient(180deg, #161b33 0%, #0b0d17 100%);
       text-align: center;
-      padding: 60px 20px 30px;
+      padding: 40px 20px 30px;
       border-bottom: 1px solid #1f293d;
+    }
+
+    .logo-container {
+      margin-bottom: 15px;
+    }
+
+    .logo-container img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(77, 166, 255, 0.4);
+      object-fit: cover;
     }
 
     h1 {
       color: #4da6ff;
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin: 10px 0;
     }
 
     .tagline {
       font-size: 1.2rem;
       color: #a0aec0;
+      margin-top: 0;
     }
 
     main {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -55,16 +68,27 @@
       padding-bottom: 10px;
     }
 
+    .status-badge {
+      display: inline-block;
+      background-color: #f59e0b;
+      color: #000;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
       margin-top: 15px;
     }
 
     .feature-item {
       background: #0f1426;
-      padding: 15px;
+      padding: 18px;
       border-radius: 8px;
       border-left: 4px solid #4da6ff;
     }
@@ -75,15 +99,35 @@
       font-size: 1.1rem;
     }
 
-    .status-badge {
-      display: inline-block;
-      background-color: #f59e0b;
-      color: #000;
-      font-weight: bold;
-      padding: 4px 12px;
-      border-radius: 20px;
+    .exec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .exec-card {
+      background: #0f1426;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #1f293d;
+      text-align: center;
+    }
+
+    .exec-card h3 {
+      margin: 0 0 5px 0;
+      color: #38bdf8;
+    }
+
+    .exec-card a {
+      color: #93c5fd;
+      text-decoration: none;
       font-size: 0.85rem;
-      margin-top: 5px;
+      word-break: break-all;
+    }
+
+    .exec-card a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -97,56 +141,91 @@
 <body>
 
   <header>
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/google/generative-ai-docs/main/site/en/images/spacer.gif" id="club-logo" alt="Neuqua Valley Astronomy Club Logo">
+    </div>
     <h1>✨ Neuqua Valley Astronomy Club ✨</h1>
-    <p class="tagline">Explore the universe, look through telescopes, and discover the cosmos.</p>
+    <p class="tagline">Exploring the cosmos from Naperville, IL.</p>
   </header>
 
   <main>
 
     <section class="card">
-      <h2>📅 Meeting Schedule</h2>
-      <span class="status-badge">UPDATE COMING SOON</span>
-      <p>Official meeting days and room details will be posted here soon for the upcoming term! Check back shortly or contact an officer for details.</p>
+      <h2>✨ Who Are We?</h2>
+      <p>The Neuqua Valley Astronomy Club is a student-led community dedicated to exploring space, astrophysics, and stargazing. Whether you are an expert on black holes or just curious about what's out there in the universe, our club offers an engaging, welcoming space for everyone!</p>
+    </section>
+
+    <section class="card">
+      <h2>📅 Meetings & Location</h2>
+      <span class="status-badge">MEETING DAYS POSTED SOON</span>
+      <p>Official meeting days and room details for the upcoming term will be posted here shortly!</p>
+      <p><strong>📍 Location:</strong> Neuqua Valley High School — Main Building (2360 95th St, Naperville, IL 60564)</p>
     </section>
 
     <section class="card">
       <h2>🚀 Why Join Astronomy Club?</h2>
-      <p>Whether you're obsessed with black holes, love stargazing, or just want a cool place to hang out and learn something incredible, there's a place for you here!</p>
+      <p>Looking for a fun place to hang out after school? Here are just a few reasons to get involved:</p>
       
       <div class="features-grid">
         <div class="feature-item">
+          <h3>🍬 Candy & Prizes</h3>
+          <p>Win awesome prizes, enjoy free candy, and compete in fun space trivia and activities!</p>
+        </div>
+        <div class="feature-item">
+          <h3>👥 Bring Friends</h3>
+          <p>Hang out with your friends or make new ones who share your interest in science and space.</p>
+        </div>
+        <div class="feature-item">
+          <h3>🤝 Naperville Non-Profits</h3>
+          <p>Interact and connect with amazing non-profit organization partners all across Naperville!</p>
+        </div>
+        <div class="feature-item">
           <h3>🔭 Telescope Nights</h3>
           <p>Get hands-on experience using telescopes to view the Moon, planets, and deep-space objects.</p>
-        </div>
-        <div class="feature-item">
-          <h3>🌌 Mind-Blowing Topics</h3>
-          <p>Explore dark matter, exoplanets, space exploration missions, and astrophysics in fun ways.</p>
-        </div>
-        <div class="feature-item">
-          <h3>🪐 Great Community</h3>
-          <p>Meet other students who share your curiosity about space and science.</p>
         </div>
       </div>
     </section>
 
     <section class="card">
-      <h2>📸 Telescope Night Gallery</h2>
-      <p><em>Photos from our stargazing events will be posted here!</em></p>
-    </section>
-
-    <section class="card">
-      <h2>📬 Contact & Officers</h2>
-      <p>Have questions? Reach out to our club officers or sponsor!</p>
-      <ul>
-        <li><strong>Club Sponsor:</strong> [Teacher Name]</li>
-        <li><strong>Meeting Location:</strong> [Room Number]</li>
-      </ul>
+      <h2>🌟 Executive Board</h2>
+      <p>Have questions or want to get in touch? Reach out to any of our exec board members!</p>
+      
+      <div class="exec-grid">
+        <div class="exec-card">
+          <h3>Jayden</h3>
+          <a href="mailto:jaydenl6995@k12.ipsd.org">jaydenl6995@k12.ipsd.org</a>
+        </div>
+        <div class="exec-card">
+          <h3>Zara</h3>
+          <a href="mailto:zararah0629@k12.ipsd.org">zararah0629@k12.ipsd.org</a>
+        </div>
+        <div class="exec-card">
+          <h3>Sanjana</h3>
+          <a href="mailto:sanjanabal6958@k12.ipsd.org">sanjanabal6958@k12.ipsd.org</a>
+        </div>
+        <div class="exec-card">
+          <h3>Harshni</h3>
+          <a href="mailto:harshnikar3308@k12.ipsd.org">harshnikar3308@k12.ipsd.org</a>
+        </div>
+        <div class="exec-card">
+          <h3>Harshal</h3>
+          <a href="mailto:harshalkar3310@k12.ipsd.org">harshalkar3310@k12.ipsd.org</a>
+        </div>
+        <div class="exec-card">
+          <h3>Alyssa</h3>
+          <a href="mailto:alyssahen6324@k12.ipsd.org">alyssahen6324@k12.ipsd.org</a>
+        </div>
+        <div class="exec-card">
+          <h3>Brendan</h3>
+          <a href="mailto:brendanbau5400@k12.ipsd.org">brendanbau5400@k12.ipsd.org</a>
+        </div>
+      </div>
     </section>
 
   </main>
 
   <footer>
-    <p>&copy; Neuqua Valley High School Astronomy Club</p>
+    <p>&copy; Neuqua Valley High School Astronomy Club • Naperville, IL</p>
   </footer>
 
 </body>
