@@ -17,41 +17,136 @@
       line-height: 1.6;
     }
 
-    /* TOP NAVIGATION BAR */
+    /* TOP NAVIGATION & DROPDOWN MENU */
     nav {
       position: sticky;
       top: 0;
       background-color: #161b33;
       border-bottom: 1px solid #232d48;
       display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
       z-index: 1000;
-      flex-wrap: wrap;
     }
 
-    nav button {
+    .menu-btn {
       background: none;
-      border: 1px solid transparent;
-      color: #93c5fd;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 8px 16px;
-      border-radius: 6px;
+      border: none;
+      color: #38bdf8;
+      font-size: 1.8rem;
       cursor: pointer;
-      transition: all 0.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px;
     }
 
-    nav button:hover {
+    .menu-btn span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e0e6ed;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 10px;
+      background-color: #161b33;
+      border: 1px solid #232d48;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      flex-direction: column;
+      width: 220px;
+      padding: 8px 0;
+      z-index: 1001;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+    }
+
+    .dropdown-menu button {
+      background: none;
+      border: none;
+      color: #93c5fd;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .dropdown-menu button:hover {
       background-color: #232d48;
       color: #ffffff;
     }
 
-    nav button.active {
+    .dropdown-menu button.active {
       background-color: #38bdf8;
       color: #0b0d17;
-      border-color: #38bdf8;
+    }
+
+    /* ROCKET EXPLORATION PROGRESS BAR */
+    .progress-container {
+      background-color: #0b0d17;
+      padding: 10px 20px;
+      border-bottom: 1px solid #1f293d;
+    }
+
+    .progress-label {
+      font-size: 0.85rem;
+      color: #a0aec0;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .planets-track {
+      position: relative;
+      height: 36px;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+
+    .track-line {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      right: 20px;
+      height: 3px;
+      background-color: #232d48;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .planet-node {
+      position: relative;
+      z-index: 2;
+      font-size: 1.4rem;
+      background: #0b0d17;
+      padding: 2px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .planet-node.visited {
+      transform: scale(1.2);
+    }
+
+    .rocket-icon {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      font-size: 1.6rem;
+      z-index: 3;
+      transition: left 0.5s ease-in-out;
     }
 
     header {
@@ -89,11 +184,11 @@
 
     /* TAB CONTENT SECTIONS */
     .tab-content {
-      display: none; /* Hides sections by default */
+      display: none;
     }
 
     .tab-content.active {
-      display: block; /* Shows active section */
+      display: block;
     }
 
     .card {
@@ -123,7 +218,6 @@
       margin-bottom: 10px;
     }
 
-    /* QUICK JOIN BOX */
     .join-box {
       background: #0f1426;
       border: 1px solid #38bdf8;
@@ -226,12 +320,30 @@
 <body>
 
   <nav>
-    <button class="nav-btn active" onclick="openTab('about')">Who Are We?</button>
-    <button class="nav-btn" onclick="openTab('why-join')">Why Join</button>
-    <button class="nav-btn" onclick="openTab('meetings')">Meetings & Location</button>
-    <button class="nav-btn" onclick="openTab('join')">Interest Form & Socials</button>
-    <button class="nav-btn" onclick="openTab('team')">Sponsor & Exec Board</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+      ☰ <span>Menu</span>
+    </button>
+    <div id="dropdown" class="dropdown-menu">
+      <button class="nav-btn active" onclick="openTab('about', 0)">Who Are We?</button>
+      <button class="nav-btn" onclick="openTab('why-join', 25)">Why Join</button>
+      <button class="nav-btn" onclick="openTab('meetings', 50)">Meetings & Location</button>
+      <button class="nav-btn" onclick="openTab('join', 75)">Interest Form & Socials</button>
+      <button class="nav-btn" onclick="openTab('team', 100)">Sponsor & Exec Board</button>
+    </div>
   </nav>
+
+  <div class="progress-container">
+    <div class="progress-label" id="progress-text">Website Exploration Progress: 20% (Earth 🌎)</div>
+    <div class="planets-track">
+      <div class="track-line"></div>
+      <div class="rocket-icon" id="rocket">🚀</div>
+      <span class="planet-node visited" title="Earth">🌎</span>
+      <span class="planet-node" title="Mars">🔴</span>
+      <span class="planet-node" title="Jupiter">🪐</span>
+      <span class="planet-node" title="Saturn">🌌</span>
+      <span class="planet-node" title="Deep Space">✨</span>
+    </div>
+  </div>
 
   <header>
     <div class="logo-container">
@@ -360,23 +472,58 @@
   </footer>
 
   <script>
-    function openTab(tabId) {
+    const visitedTabs = new Set(['about']);
+
+    function toggleMenu() {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('nav');
+      if (!nav.contains(event.target)) {
+        document.getElementById('dropdown').classList.remove('show');
+      }
+    });
+
+    function openTab(tabId, percent) {
       // Hide all tabs
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => content.classList.remove('active'));
 
-      // Remove active status from all buttons
-      const buttons = document.querySelectorAll('.nav-btn');
+      // Remove active class from menu buttons
+      const buttons = document.querySelectorAll('.dropdown-menu button');
       buttons.forEach(button => button.classList.remove('active'));
 
-      // Show selected tab
+      // Show selected tab & mark active
       document.getElementById(tabId).classList.add('active');
-
-      // Set active button style
       event.currentTarget.classList.add('active');
+
+      // Track visited sections
+      visitedTabs.add(tabId);
+      
+      // Move Rocket
+      const rocket = document.getElementById('rocket');
+      rocket.style.left = percent + '%';
+
+      // Update text status
+      const exploredCount = visitedTabs.size;
+      const totalProgress = exploredCount * 20;
+      
+      let planetName = "Earth 🌎";
+      if (percent === 25) planetName = "Mars 🔴";
+      if (percent === 50) planetName = "Jupiter 🪐";
+      if (percent === 75) planetName = "Saturn 🌌";
+      if (percent === 100) planetName = "Deep Space ✨";
+
+      document.getElementById('progress-text').innerText = 
+        `Website Exploration Progress: ${totalProgress}% (Reached: ${planetName})`;
+
+      // Close dropdown menu after picking a tab
+      document.getElementById('dropdown').classList.remove('show');
     }
   </script>
 
 </body>
 </html>
- 
